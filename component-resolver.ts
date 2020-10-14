@@ -2,7 +2,7 @@ import {RaguServerConfig, TemplateComponentResolver} from "ragu-server";
 import * as path from 'path';
 import * as fs from 'fs';
 
-export class VueComponentResolver extends TemplateComponentResolver {
+export class ReactComponentResolver extends TemplateComponentResolver {
   constructor(config: RaguServerConfig) {
     super(config);
   }

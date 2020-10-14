@@ -1,6 +1,6 @@
 import {HydrateCompiler, RaguServerConfig, ViewCompiler} from "ragu-server";
 import {createTestConfig} from "./test-config-factory";
-import {VueComponentResolver} from "../component-resolver";
+import {ReactComponentResolver} from "../component-resolver";
 import jsdom, {ConstructorOptions} from "jsdom";
 import fs from "fs";
 
@@ -11,20 +11,20 @@ describe('Compiler Integration Test', () => {
 
     beforeAll(async () => {
       config = await createTestConfig();
-      config.components.resolver = new VueComponentResolver(config);
+      config.components.resolver = new ReactComponentResolver(config);
 
       compiler = new ViewCompiler(config);
       await compiler.compileAll();
     });
 
-    it('renders the vue component', async () => {
+    it('renders the react component', async () => {
       const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world'));
       const renderResult = await compiledComponent.render({name: 'Hello, World!'});
 
       expect(renderResult.html).toContain('Hello, World!');
     });
 
-    it('renders the vue component with a state', async () => {
+    it('renders the react component with a state', async () => {
       const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
       const renderResult = await compiledComponent.render({name: 'World'});
 
@@ -42,7 +42,7 @@ describe('Compiler Integration Test', () => {
 
     beforeAll(async () => {
       config = await createTestConfig();
-      config.components.resolver = new VueComponentResolver(config);
+      config.components.resolver = new ReactComponentResolver(config);
       viewCompiler = new ViewCompiler(config);
       compiler = new HydrateCompiler(config);
       await compiler.compileAll();

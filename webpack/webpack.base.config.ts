@@ -3,7 +3,7 @@ import path from 'path';
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
-export const raguVueWebpackBaseConfig = (assetsPrefix: string, developmentEnvironment: boolean = false): webpack.Configuration => {
+export const raguReactWebpackBaseConfig = (assetsPrefix: string, developmentEnvironment: boolean = false): webpack.Configuration => {
   return {
     mode: 'production',
     resolve: {

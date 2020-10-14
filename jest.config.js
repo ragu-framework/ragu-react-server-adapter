@@ -6,5 +6,6 @@ module.exports = {
     "/node_modules/",
     "/testing/",
   ],
-  transformIgnorePatterns: ['(.*)\.jsx$']
+  transformIgnorePatterns: ['(.*)\.jsx$'],
+  testTimeout: 30000,
 };
