@@ -5,6 +5,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "/testing/",
+    "/webpack/",
   ],
   transformIgnorePatterns: ['(.*)\.jsx$'],
   testTimeout: 30000,
