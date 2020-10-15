@@ -113,7 +113,7 @@ describe('Compiler Integration Test', () => {
 
       // @ts-ignore
       window.stubReactDestroyed = jest.fn();
-      resolvedComponent.disconnect();
+      resolvedComponent.disconnect(div);
 
       // @ts-ignore
       expect(window.stubReactDestroyed).toBeCalled();
