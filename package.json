@@ -1,14 +1,14 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Adapter of Ragu Server",
-  "repository": "https://github.com/carlosmaniero/ragu",
+  "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "jest --runInBand --coverage --silent --verbose",
     "clean": "tsc --build --clean",
-    "build": "tsc && cp package.json dist/ && cp ./README.md dist/ && cp -r resolvers dist/ && cp -r repository-assets dist/"
+    "build": "tsc && cp package.json dist/ && cp ./README.md dist/ && cp -r resolvers dist/"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
