@@ -1,4 +1,4 @@
-const ReactDOM = require("react-dom");
+var ReactDOM = require("react-dom");
 
 module.exports = (component) => ({
   hydrate: function (el, props, state) {
