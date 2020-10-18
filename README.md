@@ -45,7 +45,7 @@ assets.
 
 `compiler.namePrefix` used to prevent micro-frontends name collision.
 
-There are a set of optional properties which you can override. All configurations described [here](https://ragu-framework.github.io/ragu/modules/_src_config_.html#raguserverbaseconfigprops).
+There are a set of optional properties which you can override. All configurations described [here](https://ragu-framework.github.io/ragu/interfaces/_src_config_.raguserverbaseconfig.html).
 
 ### NPM Commands
 
