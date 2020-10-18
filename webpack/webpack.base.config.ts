@@ -1,11 +1,11 @@
 import webpack from "webpack";
 import path from 'path';
+import {RaguServerConfig} from "ragu-server";
 
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
-export const raguReactWebpackBaseConfig = (assetsPrefix: string, developmentEnvironment: boolean = false): webpack.Configuration => {
+export const raguReactWebpackBaseConfig = (config: RaguServerConfig): webpack.Configuration => {
   return {
-    mode: 'production',
     resolve: {
       modules: ['node_modules', path.resolve(__dirname, '..', 'node_modules')],
       extensions: [ '.js', '.jsx', '.ts', 'tsx' ],
@@ -30,17 +30,12 @@ export const raguReactWebpackBaseConfig = (assetsPrefix: string, developmentEnvi
           }
         },
         {
-          test: /\.tsx?$/,
-          loader: 'ts-loader',
-          exclude: /node_modules/,
-        },
-        {
           test: /\.(png|svg|jpg|gif)$/,
           exclude: /node_modules/,
           loader: 'file-loader',
           options: {
             esModule: false,
-            publicPath: assetsPrefix
+            publicPath: config.compiler.assetsPrefix
           },
         },
         {
@@ -48,7 +43,7 @@ export const raguReactWebpackBaseConfig = (assetsPrefix: string, developmentEnvi
           exclude: /node_modules/,
           use: [
             MiniCSSExtractPlugin.loader,
-            { loader: 'css-loader', options: { sourceMap: developmentEnvironment } },
+            { loader: 'css-loader', options: { sourceMap: config.environment === 'development' } },
           ],
         }
       ]

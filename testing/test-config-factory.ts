@@ -2,7 +2,7 @@ import path from "path";
 import getPort from "get-port";
 import {RaguServerConfig} from "ragu-server";
 import {TestLogger} from "./test-logger";
-import {raguReactWebpackHydrateConfig, raguReactWebpackViewConfig} from "../webpack";
+import {createReactRaguServerConfig} from "../config";
 
 type TestConfig = RaguServerConfig & {
   server: {
@@ -14,35 +14,26 @@ type TestConfig = RaguServerConfig & {
 
 export const createTestConfig = async (): Promise<TestConfig> => {
   const port = await getPort();
-  const viewOutput = path.join(__dirname, 'compiled_components', 'view');
-  const hydrateOutput = path.join(__dirname, 'compiled_components', 'hydrate');
 
-  return ({
-    server: {
-      routes: {
-        assets: '/component-assets/',
-      },
-      previewEnabled: true,
-      hideWelcomeMessage: true,
-      port,
-      logging: {
-        logger: new TestLogger(),
-      }
+  const config = createReactRaguServerConfig({
+    projectRoot: __dirname,
+    environment: 'development',
+    compiler: {
+      assetsPrefix: ''
     },
     components: {
       namePrefix: 'test_components_',
       sourceRoot: path.join(__dirname, 'components'),
     },
-    compiler: {
-      assetsPrefix: `file://${hydrateOutput}/`,
-      webpack: {
-        hydrate: raguReactWebpackHydrateConfig(`file://${hydrateOutput}/`),
-        view: raguReactWebpackViewConfig(`file://${hydrateOutput}/`)
-      },
-      output: {
-        view: viewOutput,
-        hydrate: hydrateOutput
-      },
-    }
+    server: {
+      port,
+      logging: {
+        logger: new TestLogger(),
+      }
+    },
   });
+
+  config.compiler.assetsPrefix = `file://${config.compiler.output.hydrate}/`;
+
+  return config as TestConfig;
 }

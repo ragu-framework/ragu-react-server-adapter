@@ -3695,6 +3695,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-plain-object@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
+  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
+
 is-potential-custom-element-name@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-potential-custom-element-name/-/is-potential-custom-element-name-1.0.0.tgz#0c52e54bcca391bb2c494b21e8626d7336c6e397"
@@ -5323,15 +5328,16 @@ ragu-dom@^0.0.22:
   resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.22.tgz#8d40bc812b22c69cfc7ae6826b8eba138c222b0b"
   integrity sha512-HBBmMnqt1/OrKsVaYRbtc97C4Z+o3ZkD90eafb7zniBeyhVypdAOgvncZyIRGprA8VS+3jDAzcDNeV1UFlYtMg==
 
-ragu-server@^0.0.29:
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.29.tgz#03288214eee7a258a2e945e682353befa55b4416"
-  integrity sha512-XqjSiblJLMDfj3mdQuNYrr5j0HTksGBF6ufx2h6iB2Y3TjCUWDxefAWJJcRwFa8zGM1WsL3FUUhykVS1OEH3lA==
+ragu-server@^0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.34.tgz#474d3fc5efd696e99970c0c33a268db9fbf5281c"
+  integrity sha512-bqfv2u/VO8IcleWoRBeg3jNv9yUBwvN2n55kB+Ukc23gwRCBPO/lkEtTeThyCIzxEA8N1VuWEY3ZtvshRoYTsw==
   dependencies:
     "@types/webpack-node-externals" "^2.5.0"
     chalk "^4.1.0"
     chunks-2-json-webpack-plugin "^1.0.4"
     express "^4.17.1"
+    is-plain-object "^5.0.0"
     npm-programmatic "^0.0.12"
     ragu-dom "^0.0.22"
     webpack "^4.44.1"
@@ -6644,7 +6650,7 @@ webpack-bundle-analyzer@^3.8.0:
     opener "^1.5.1"
     ws "^6.0.0"
 
-webpack-merge@^5.1.4:
+webpack-merge@^5.1.4, webpack-merge@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.2.0.tgz#31cbcc954f8f89cd4b06ca8d97a38549f7f3f0c9"
   integrity sha512-QBglJBg5+lItm3/Lopv8KDDK01+hjdg2azEwi/4vKJ8ZmGPdtJsTpjtNNOW3a4WiqzXdCATtTudOZJngE7RKkA==
