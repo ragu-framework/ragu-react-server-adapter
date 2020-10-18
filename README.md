@@ -22,47 +22,32 @@ npm install ragu-react-server-adapter
 
 ## Configuration
 
+### The config file
 Create a `ragu-config.js` file with as bellow:
 
 ```javascript
-const {ReactComponentResolver} = require("ragu-react-server-adapter/component-resolver");
-const {raguReactWebpackViewConfig, raguReactWebpackHydrateConfig} = require('ragu-react-server-adapter/webpack');
+const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
 
-const path = require("path");
-const port = parseInt(process.env.PORT || '3101');
-
-const assetsPrefix = `http://localhost:${port}/component-assets/`;
-
-const config = {
-  server: {
-    port,
-    routes: {
-      assets: '/component-assets/'
+module.exports = createReactRaguServerConfig({
+    compiler: {
+        assetsPrefix: 'http://localhost:3100/component-assets/'
     },
-    previewEnabled: true
-  },
-  compiler: {
-    assetsPrefix: assetsPrefix,
-    watchMode: process.env.WATCH_MODE === 'true',
-    webpack: {
-      view: raguReactWebpackViewConfig(assetsPrefix),
-      hydrate: raguReactWebpackHydrateConfig(assetsPrefix),
-    },
-    output: {
-      view: path.join(__dirname, 'compiled/view_components'),
-      hydrate: path.join(__dirname, 'compiled/hydrate_components')
+    components: {
+        namePrefix: 'my_project_name_'
     }
-  },
-  components: {
-    namePrefix: 'ragu-vue-test-app',
-    sourceRoot: path.join(__dirname, 'ragu-components'),
-  },
-};
-
-config.components.resolver = new ReactComponentResolver(config);
-
-module.exports = config
+});
 ```
+
+You must provide theses two properties:
+
+`compiler.assetsPrefix` micro-frontends could be loaded at any domain. So you must define which domain it will fetch
+assets.
+
+`compiler.namePrefix` used to prevent micro-frontends name collision.
+
+There are a set of optional properties which you can override. All configurations described [here](https://ragu-framework.github.io/ragu/modules/_src_config_.html#raguserverbaseconfigprops).
+
+### NPM Commands
 
 Adding ragu commands to `npm` scripts section into `package.json`:
 
@@ -80,7 +65,8 @@ Adding ragu commands to `npm` scripts section into `package.json`:
 
 ![Component structure](repository-assets/component-structure.png)
 
-You must create a `ragu-components` directory at the project root as described at `config.components.sourceRoot`.
+You must create a `ragu-components` directory at the project root. You can override the `ragu-components` overriding
+the `config.components.sourceRoot` config.
 
 Ragu uses a file-system based route system as same as `NextJs`. If you are not familiar with the concept, here an example:
 
@@ -90,14 +76,14 @@ A component created at:
 
 Will be available at the ragu server at:
 
-- **Component route:** `http://you-ragu-server-host/components/ragu-components/hello-world/` 
+- **Component route:** `http://you-ragu-server-host/components/ragu-components/hello-world/`
 - **Preview route:** `http://you-ragu-server-host/components/ragu-components/hello-world/`
 
-So, to expose a component you need to create a `ragu-components/{you-component-name}/index.js` (`.jsx` | `ts` | `tsx`) 
+So, to expose a component you need to create a `ragu-components/{you-component-name}/index.js` (`.jsx` | `ts` | `tsx`)
 exposing a default function which will receive the `props` and `state` if needed.
 
 ```jsx
-export default (props, state) => <MyConponent props={props} state={state} /> 
+export default (props, state) => <MyConponent props={props} state={state} />
 ```
 
 ## Fetching the state
@@ -118,7 +104,7 @@ In the example bellow, we receive an id form props and fetch a Pokémon from pok
 
 ## Webpack configuration
 
-This repository delivers a basic `webpack` configuration for react that is compatible with projects created with 
+This repository delivers a basic `webpack` configuration for React that is compatible with projects created with
 `create-react-app`. If you need some extra configuration you can:
 
 1. Extending the configuration
@@ -133,26 +119,26 @@ npm install webpack-merge
 ```
 
 ```javascript
-const {ReactComponentResolver} = require("ragu-react-server-adapter/component-resolver");
-const {raguReactWebpackViewConfig, raguReactWebpackHydrateConfig} = require('ragu-react-server-adapter/webpack');
+const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
 const {merge} = require('webpack-merge');
 
-const config = {
-  // ...
-  compiler: {
-    // ...
-    webpack: {
-      view: merge(raguReactWebpackViewConfig(assetsPrefix), {
-        // Your extra configuration goes here
-      }),
-      hydrate: merge(raguReactWebpackHydrateConfig(assetsPrefix), {
-        // Your extra configuration goes here
-      })
-    },
-  },
-};
 
-config.components.resolver = new ReactComponentResolver(config);
+const config = createReactRaguServerConfig({
+    compiler: {
+        assetsPrefix: 'http://localhost:3100/component-assets/'
+    },
+    components: {
+        namePrefix: 'my_project_name_'
+    }
+});
+
+config.compiler.webpack.view = merge(config.compiler.webpack.view, {
+  // Your extra configuration goes here
+});
+
+config.compiler.webpack.hydrate = merge(config.compiler.webpack.hydrate, {
+  // Your extra configuration goes here
+});
 
 module.exports = config
 ```
@@ -160,11 +146,11 @@ module.exports = config
 ### Create your own Webpack Configuration
 
 If you really need a custom webpack configuration, instead of using the `webpack-merge`
-to extend the default configuration you can just put the webpack 
+to extend the default configuration you can just put the webpack
 configuration at the `config.webpack.view` and `config.webpack.hydrate` fields.
 
-The `view` configuration (aka server configuration) requires a `node` and `commonjs2` target. 
-We also recommend you to use `nodeExternals` to avoid adding `node_modules` packages to the `view` bundle.  
+The `view` configuration (aka server configuration) requires a `node` and `commonjs2` target.
+We also recommend you to use `nodeExternals` to avoid adding `node_modules` packages to the `view` bundle.
 
 ```javascript
 {
