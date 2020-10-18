@@ -103,6 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-.jig-components
+.ragu-components
 compiled_components
 .idea
