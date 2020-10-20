@@ -11,7 +11,8 @@
     border-radius: 20px;
     display: block;
     transition: 1s;
-    font-family: var(--main-title-font-family; sans-serif);
+    font-family: var(--main-title-font-family, sans-serif);
+    white-space: nowrap;
     color: white;
     text-shadow: 1px 1px 0 rgba(43, 51, 50, 0.1);
 }

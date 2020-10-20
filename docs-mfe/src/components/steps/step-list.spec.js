@@ -22,22 +22,22 @@ describe('StepList', () => {
 
     it('increases the progress bar when click on next button', () => {
       const component = render(<StepList steps={steps} />);
-      component.getByText('Next').click();
+      component.getByLabelText('Next').click();
       expect(component.getByText('2 / 2')).toBeInTheDocument();
     });
 
     it('decreases the progress bar when click on previous button', () => {
       const component = render(<StepList steps={steps} />);
-      component.getByText('Next').click();
-      component.getByText('Previous').click();
+      component.getByLabelText('Next').click();
+      component.getByLabelText('Previous').click();
       expect(component.getByText('1 / 2')).toBeInTheDocument();
     });
 
     it('does not exceeds the steps length when click on next', () => {
       const component = render(<StepList steps={steps} />);
 
-      component.getByText('Next').click();
-      component.getByText('Next').click();
+      component.getByLabelText('Next').click();
+      component.getByLabelText('Next').click();
 
       expect(component.getByText('2 / 2')).toBeInTheDocument();
     });
@@ -45,7 +45,7 @@ describe('StepList', () => {
     it('does not decreases less one', () => {
       const component = render(<StepList steps={steps} />);
 
-      component.getByText('Previous').click();
+      component.getByLabelText('Previous').click();
 
       expect(component.getByText('1 / 2')).toBeInTheDocument();
     });
