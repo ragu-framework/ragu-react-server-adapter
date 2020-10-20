@@ -47,7 +47,7 @@ export const Installation = () => <div className="ragu-react-server-adapter__ins
       title: 'Installing packages',
       content: <div>
         <p>
-          You need to add two dependencies to your react project <strong>ragu-server</strong> package and <strong>ragu-react-server-adapter</strong> at your react app.
+          You need to add <strong>ragu-server</strong> and <strong>ragu-react-server-adapter</strong> as dependency of you react app.
         </p>
 
         <p>
@@ -98,7 +98,69 @@ export const Installation = () => <div className="ragu-react-server-adapter__ins
     },
     {
       title: "Exposing a component",
-      content: <div></div>
+      content: <div>
+        <p>
+          Ragu uses a filesystem structure to expose micro-frontends.
+          It means that any file into the <strong>ragu-components</strong> directory will be exposed as micro-frontend.
+        </p>
+
+        <h2>Rendering a simple component</h2>
+
+        <CodeHighlighter language='javascript' filename="ragu-components/hello-world/index.jsx">
+          {`export default () => <MyComponent />`}
+        </CodeHighlighter>
+
+        <p>Following the filesystem based-route the component will be available at</p>
+
+        <ul>
+          <li>
+            <strong>Component route</strong>: http://you-ragu-server-host/components/ragu-components/hello-world/
+          </li>
+          <li>
+            <strong>Preview route</strong>: http://you-ragu-server-host/components/ragu-components/hello-world/
+          </li>
+        </ul>
+
+        <h2>Passing props to your micro-frontends</h2>
+
+        <p>
+          Props are passed to micro-frontends as request query parameters. The first argument of the exported function
+          are the props received by server.
+        </p>
+
+        <CodeHighlighter language='javascript' filename="ragu-components/hello-world/index.jsx">
+          {`export default (props) => <MyComponent name={props.name} />`}
+        </CodeHighlighter>
+
+        <ul>
+          <li>
+            <strong>Component route</strong>: http://you-ragu-server-host/components/ragu-components/hello-world/?name=World
+          </li>
+          <li>
+            <strong>Preview route</strong>: http://you-ragu-server-host/components/ragu-components/hello-world/?name=World
+          </li>
+        </ul>
+
+        <h2>Fetching async data</h2>
+
+        <p>There is a problem that is hard to solve when the subject is Server Side Rendering: To know when a component finished it renders process.</p>
+
+        <p>To make sure your component is fully render at the server we recommend to does not have async operations on component mount. Instead you can define a state function which will load any information your component requires it also prevent your component to load twice the same information as Ragu server exposes the state to the client.</p>
+
+        <p>Create a file called <strong>state.js</strong> at your component directory with the follow structure:</p>
+
+        <CodeHighlighter language='javascript' filename="ragu-components/hello-world/state.js">
+          {`export default (props) => Promise.resolve({greeting: \`Hello, \${props.name}\`)`}
+        </CodeHighlighter>
+
+        <p>And the state will be available to your component as the first parameter.</p>
+
+        <CodeHighlighter language='javascript' filename="ragu-components/hello-world/index.jsx">
+          {`export default (props) => <MyComponent greeting={props.greeting} />`}
+        </CodeHighlighter>
+
+        <p>And that's all!</p>
+      </div>
     }
   ]} />
 </div>
