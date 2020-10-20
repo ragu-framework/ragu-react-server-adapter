@@ -1,8 +1,16 @@
+.ragu-react-server-adapter__code-highlighter {
+    font-size: 1.2rem;
+}
+
+.ragu-react-server-adapter__code-highlighter pre {
+    margin: 0;
+}
+
 .ragu-react-server-adapter__code-highlighter__filename {
     border: 2px solid #282c34;
     border-radius: 10px 10px 0 0;
-    margin: 0 0 -12px 0;
     padding: 10px 20px;
     display: inline-block;
+    font-size: 0.8rem;
     border-bottom: 0;
 }

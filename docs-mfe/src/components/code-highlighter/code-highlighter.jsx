@@ -4,7 +4,7 @@ import React from "react";
 import './code-highlighter.css';
 
 export const CodeHighlighter = ({children, language, filename}) => {
-  return (<div>
+  return (<div className="ragu-react-server-adapter__code-highlighter">
     {filename && <div className="ragu-react-server-adapter__code-highlighter__filename">{filename}</div>}
     <SyntaxHighlighter language={language} style={atomDark} showLineNumbers={true}>
       {children}

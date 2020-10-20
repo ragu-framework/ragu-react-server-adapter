@@ -16,7 +16,10 @@ module.exports = createReactRaguServerConfig({
 });`;
 
 export const Installation = () => <div className="ragu-react-server-adapter__installation">
-  <img src={logo} alt="React adapter logo"/>
+
+  <div className="ragu-react-server-adapter__installation__logo-wrapper">
+    <img src={logo} alt="React adapter logo" className="ragu-react-server-adapter__installation__logo"/>
+  </div>
 
   <StepList steps={[
     {

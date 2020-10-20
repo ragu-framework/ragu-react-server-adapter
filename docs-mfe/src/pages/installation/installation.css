@@ -5,6 +5,14 @@
     line-height: 1.375;
 }
 
+.ragu-react-server-adapter__installation__logo-wrapper {
+    text-align: center;
+}
+
+.ragu-react-server-adapter__installation__logo {
+    max-width: 90%;
+}
+
 .ragu-react-server-adapter__installation h1 {
     font-family: var(--secondary-title-font-family, Lato, sans-serif);
     font-weight: var(--secondary-title-weight, 300);
