@@ -1,0 +1,11 @@
+.ragu-react-server-adapter__step-indicator {
+    background: #60dbfb;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #fff;
+}

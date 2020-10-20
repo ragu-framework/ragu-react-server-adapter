@@ -1,0 +1,12 @@
+.ragu-react-server-adapter__installation {
+    font-family: var(--default-font-family, 'Poppins', sans-serif);
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.375;
+}
+
+.ragu-react-server-adapter__installation h1 {
+    font-family: var(--secondary-title-font-family, Lato, sans-serif);
+    font-weight: var(--secondary-title-weight, 300);
+    font-size: 1.5rem;
+}

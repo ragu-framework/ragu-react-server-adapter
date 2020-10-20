@@ -1,0 +1,7 @@
+.ragu-react-server-adapter__step-list__step-control {
+    display: grid;
+    grid-template-columns: 100px minmax(200px , auto) 100px;
+    grid-gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+}

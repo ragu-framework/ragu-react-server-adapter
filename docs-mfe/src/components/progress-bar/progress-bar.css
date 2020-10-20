@@ -1,0 +1,17 @@
+.ragu-react-server-adapter__progress_bar {
+    background: rgba(43, 51, 50, 0.06);
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden
+}
+
+.ragu-react-server-adapter__progress_bar__control {
+    padding: 10px 0;
+    background: #779e62;
+    border-radius: 20px;
+    display: block;
+    transition: 1s;
+    font-family: var(--main-title-font-family; sans-serif);
+    color: white;
+    text-shadow: 1px 1px 0 rgba(43, 51, 50, 0.1);
+}

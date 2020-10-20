@@ -1,0 +1,14 @@
+.ragu-react-server-adapter__primary_button {
+    background: #BF265E;
+    border: 1px solid #BF265E;
+    box-sizing: border-box;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: var(--main-title-font-family, sans-serif);
+    font-weight: 300;
+    padding: 13px;
+    text-align: center;
+    transition: opacity ease-in-out 0.3s;
+}
