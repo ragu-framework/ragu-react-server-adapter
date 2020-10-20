@@ -23,6 +23,27 @@ export const Installation = () => <div className="ragu-react-server-adapter__ins
 
   <StepList steps={[
     {
+      title: 'Welcome to ragu-react-server-adapter documentation!',
+      content: <div>
+        <p>
+          <strong>ragu-react-server-adapter</strong> delivers an abstraction on top of <strong>ragu-server</strong> to
+          enable a straightforward way to deliver your React components as micro-frontends.
+        </p>
+
+        <h2>About this documentation</h2>
+
+        <p>This documentation is actually a micro-frontend wrote in react using this adapter. Isn't is insane?</p>
+
+        <ul>
+          <li><strong>Micro-frontend</strong> <a href="http://ragu-react-server-adapter.herokuapp.com/components/installation" target="_blank">http://ragu-react-server-adapter.herokuapp.com/components/installation</a>.</li>
+          <li><strong>Preview</strong> <a href="http://ragu-react-server-adapter.herokuapp.com/preview/installation" target="_blank">http://ragu-react-server-adapter.herokuapp.com/preview/installation</a></li>
+          <li><strong>Repository</strong> <a href="https://github.com/ragu-framework/ragu-react-server-adapter/tree/main/docs-mfe" target="_blank">https://github.com/ragu-framework/ragu-react-server-adapter/tree/main/docs-mfe</a></li>
+        </ul>
+
+        Go through the next steps and check it out how easy it is to expose your components as micro-frontends.
+      </div>
+    },
+    {
       title: 'Installing packages',
       content: <div>
         <p>
