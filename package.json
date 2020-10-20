@@ -6,7 +6,7 @@
   "author": "Maniero <carlosmaniero@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --runInBand --coverage --silent --verbose",
+    "test": "jest --runInBand --coverage --silent --verbose && yarn --cwd docs-mfe test",
     "clean": "tsc --build --clean",
     "build": "tsc && cp package.json dist/ && cp ./README.md dist/ && cp -r resolvers dist/",
     "heroku-prebuild": "yarn --cwd docs-mfe && yarn --cwd docs-mfe build"

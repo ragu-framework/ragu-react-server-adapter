@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  modulePathIgnorePatterns: ["<rootDir>/dist/"],
+  modulePathIgnorePatterns: ["<rootDir>/dist/", "<rootDir>/docs-mfe/"],
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "/testing/",
