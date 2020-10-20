@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from '@testing-library/react';
-import {Step} from "./steps";
+import {Step} from "./step";
 
 describe('Steps Component', () => {
   it('renders the title', () => {
