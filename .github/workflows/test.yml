@@ -30,10 +30,12 @@ jobs:
     - run: yarn test
       env:
         CI: true
-    - run: yarn --cwd docs-mfe
+    - run: yarn
+      working-directory: docs-mfe
       env:
         CI: true
-    - run: yarn --cwd docs-mfe test
+    - run: yarn test
+      working-directory: docs-mfe
       env:
         CI: true
     - name: Coveralls
