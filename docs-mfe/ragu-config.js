@@ -2,7 +2,7 @@ const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config'
 
 const port = parseInt(process.env.PORT || '3100');
 
-const config = createReactRaguServerConfig({
+module.exports = createReactRaguServerConfig({
   projectRoot: __dirname,
   compiler: {
     assetsPrefix: process.env.ASSETS_PREFIX || `http://localhost:${port}/component-assets/`
@@ -14,5 +14,3 @@ const config = createReactRaguServerConfig({
     port
   }
 });
-
-module.exports = config;
