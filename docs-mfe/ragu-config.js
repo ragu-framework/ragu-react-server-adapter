@@ -8,7 +8,7 @@ module.exports = createReactRaguServerConfig({
     assetsPrefix: process.env.ASSETS_PREFIX || `http://localhost:${port}/component-assets/`
   },
   components: {
-    namePrefix: 'my_project_name_',
+    namePrefix: 'ragu-react-server-adapter-docs-mfe_',
     defaultDependencies: [
       {
         nodeRequire: 'react',
