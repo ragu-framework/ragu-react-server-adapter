@@ -4,17 +4,6 @@ import {StepList} from "../../components/steps/step-list";
 import './installation.css';
 import {CodeHighlighter} from "../../components/code-highlighter/code-highlighter";
 
-let basicConfigFile = `const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
-
-module.exports = createReactRaguServerConfig({
-  compiler: {
-    assetsPrefix: 'http://localhost:3100/component-assets/'
-  },
-  components: {
-    namePrefix: 'my_project_name_'
-  }
-});`;
-
 export const Installation = () => <div className="ragu-react-server-adapter__installation">
 
   <div className="ragu-react-server-adapter__installation__logo-wrapper">
@@ -78,7 +67,16 @@ export const Installation = () => <div className="ragu-react-server-adapter__ins
         <p>Create a <strong>ragu-config.js</strong> file with as bellow:</p>
 
         <CodeHighlighter language='javascript' filename="ragu-config.js">
-          {basicConfigFile}
+          {`const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
+
+module.exports = createReactRaguServerConfig({
+  compiler: {
+    assetsPrefix: 'http://localhost:3100/component-assets/'
+  },
+  components: {
+    namePrefix: 'my_project_name_'
+  }
+});`}
         </CodeHighlighter>
         
         <ul>
