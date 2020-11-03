@@ -1,6 +1,6 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Adapter of Ragu Server",
   "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
@@ -12,6 +12,13 @@
     "heroku-prebuild": "yarn --cwd docs-mfe && yarn --cwd docs-mfe build"
   },
   "devDependencies": {
+    "jest": "^26.5.2",
+    "jsdom": "^16.4.0",
+    "ts-jest": "^26.4.1"
+  },
+  "dependencies": {
+    "webpack-merge": "^5.2.0",
+    "webpack-node-externals": "^2.5.2",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
@@ -22,18 +29,11 @@
     "css-loader": "^4.3.0",
     "file-loader": "^6.1.1",
     "get-port": "^5.1.1",
-    "jest": "^26.5.2",
-    "jsdom": "^16.4.0",
     "mini-css-extract-plugin": "^1.0.0",
     "ragu-server": "^0.0.34",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "ts-jest": "^26.4.1",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3"
-  },
-  "dependencies": {
-    "webpack-merge": "^5.2.0",
-    "webpack-node-externals": "^2.5.2"
   }
 }
