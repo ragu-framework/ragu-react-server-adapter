@@ -1,8 +1,11 @@
 const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
-
+const {Logger} = require('ragu-server');
 const port = parseInt(process.env.PORT || '3100');
 
-let config = createReactRaguServerConfig({
+const config = createReactRaguServerConfig({
+  compiler: {
+    assetsPrefix: process.env.ASSETS_PREFIX || `http://localhost:${port}/component-assets/`
+  },
   components: {
     defaultDependencies: [
       {
@@ -24,11 +27,12 @@ let config = createReactRaguServerConfig({
     ]
   },
   server: {
-    port
+    port,
+    logging: {
+      level: Logger.debug
+    }
   }
 });
-
-config.compiler.assetsPrefix = process.env.ASSETS_PREFIX || config.compiler.assetsPrefix;
 
 module.exports = config;
 
