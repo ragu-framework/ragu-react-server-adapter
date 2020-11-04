@@ -7,6 +7,7 @@ const config = createReactRaguServerConfig({
     assetsPrefix: process.env.ASSETS_PREFIX || `http://localhost:${port}/component-assets/`
   },
   components: {
+    namePrefix: 'react-docs-mfe_',
     defaultDependencies: [
       {
         nodeRequire: 'react',
