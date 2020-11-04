@@ -70,25 +70,8 @@ export const installationSteps = [
       <CodeHighlighter language='javascript' filename="ragu-config.js">
         {`const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config');
 
-module.exports = createReactRaguServerConfig({
-  compiler: {
-    assetsPrefix: 'http://localhost:3100/component-assets/'
-  },
-  components: {
-    namePrefix: 'my_project_name_'
-  }
-});`}
+module.exports = createReactRaguServerConfig();`}
       </CodeHighlighter>
-
-      <ul>
-        <li>
-          <strong>compiler.assetsPrefix</strong>: Micro-frontends could be loaded at any domain.
-          To make sure assets coulbe be reached by browser you must define which domain it will fetch assets.
-        </li>
-
-        <li><strong>compiler.namePrefix</strong>: Used to prevent micro-frontends name collision.</li>
-      </ul>
-
       <p>
         There are a set of optional properties which you can override.
         All configurations described <a target="_blank"
