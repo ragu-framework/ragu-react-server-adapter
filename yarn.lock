@@ -3095,6 +3095,11 @@ find-cache-dir@^2.1.0:
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
 
+find-package-json@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/find-package-json/-/find-package-json-1.2.0.tgz#4057d1b943f82d8445fe52dc9cf456f6b8b58083"
+  integrity sha512-+SOGcLGYDJHtyqHd87ysBhmaeQ95oWspDKnMXBrnQ9Eq4OkLNqejgoaD8xVWu6GPa0B6roa6KinCMEMcVeqONw==
+
 find-up@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
@@ -5328,15 +5333,17 @@ ragu-dom@^0.0.22:
   resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.22.tgz#8d40bc812b22c69cfc7ae6826b8eba138c222b0b"
   integrity sha512-HBBmMnqt1/OrKsVaYRbtc97C4Z+o3ZkD90eafb7zniBeyhVypdAOgvncZyIRGprA8VS+3jDAzcDNeV1UFlYtMg==
 
-ragu-server@^0.0.34:
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.34.tgz#474d3fc5efd696e99970c0c33a268db9fbf5281c"
-  integrity sha512-bqfv2u/VO8IcleWoRBeg3jNv9yUBwvN2n55kB+Ukc23gwRCBPO/lkEtTeThyCIzxEA8N1VuWEY3ZtvshRoYTsw==
+ragu-server@^0.0.36:
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.36.tgz#9c6e30fa43e76600af4dab4aa5d9640418006ce7"
+  integrity sha512-h3AFfdVTioSIb6bQVXGP4apn1Hi/gSifVjLKIlgqezyA7Zt5lRarzyzgwjEf3M3hNFI+dNWoT7nb15o+2e/SVA==
   dependencies:
     "@types/webpack-node-externals" "^2.5.0"
     chalk "^4.1.0"
     chunks-2-json-webpack-plugin "^1.0.4"
+    deepmerge "^4.2.2"
     express "^4.17.1"
+    find-package-json "^1.2.0"
     is-plain-object "^5.0.0"
     npm-programmatic "^0.0.12"
     ragu-dom "^0.0.22"

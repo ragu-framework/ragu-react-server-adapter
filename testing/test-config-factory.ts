@@ -16,11 +16,7 @@ export const createTestConfig = async (): Promise<TestConfig> => {
   const port = await getPort();
 
   const config = createReactRaguServerConfig({
-    projectRoot: __dirname,
     environment: 'development',
-    compiler: {
-      assetsPrefix: ''
-    },
     components: {
       namePrefix: 'test_components_',
       sourceRoot: path.join(__dirname, 'components'),

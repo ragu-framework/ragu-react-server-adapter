@@ -2,7 +2,7 @@ import {createReactRaguServerConfig} from "../config";
 
 describe('Config', () => {
   it('does not set a default resolver when one was given', () => {
-    const resolver = jest.fn();
+    const resolver: any = jest.fn();
 
     const config = createReactRaguServerConfig({
       components: {
