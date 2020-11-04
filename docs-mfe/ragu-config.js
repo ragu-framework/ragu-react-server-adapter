@@ -2,8 +2,12 @@ const {createReactRaguServerConfig} = require('ragu-react-server-adapter/config'
 
 const port = parseInt(process.env.PORT || '3100');
 
-let config = createReactRaguServerConfig({
+module.exports = createReactRaguServerConfig({
+  compiler: {
+    assetsPrefix: process.env.ASSETS_PREFIX || `http://localhost:${port}/component-assets/`
+  },
   components: {
+    namePrefix: 'ragu-react-server-adapter-docs-mfe_',
     defaultDependencies: [
       {
         nodeRequire: 'react',
@@ -27,8 +31,3 @@ let config = createReactRaguServerConfig({
     port
   }
 });
-
-config.compiler.assetsPrefix = process.env.ASSETS_PREFIX || config.compiler.assetsPrefix;
-
-module.exports = config;
-
