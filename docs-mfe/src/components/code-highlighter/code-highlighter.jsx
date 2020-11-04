@@ -2,7 +2,10 @@ import React, {useEffect, useState} from "react";
 import './code-highlighter.css';
 
 export const CodeHighlighter = ({children, language, filename}) => {
-  const [content, setContent] = useState('loading...');
+  const [content, setContent] = useState(<pre style={{
+    background: "rgb(40, 44, 52)",
+    color: "white"
+  }}>{children}</pre>);
 
   useEffect(() => {
     (async () => {
