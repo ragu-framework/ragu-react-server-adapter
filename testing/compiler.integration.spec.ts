@@ -127,6 +127,17 @@ describe('Compiler Integration Test', () => {
       expect(div.textContent).toContain('Hello, World');
     });
 
+    it('renders a component', async () => {
+      await evalCompiledClient('hello-world-state');
+
+      const resolvedComponent = (window as any)['test_components_hello-world-state'].default;
+      const div = dom.window.document.createElement('div');
+
+      await resolvedComponent.render(div, {name: 'World'}, {msg: 'Hello, World!'});
+
+      expect(div.textContent).toContain('Hello, World');
+    });
+
     it('destroys component', async () => {
       const {default: compiledComponent} = require(viewCompiler.compiledComponentPath('hello-world'));
       const renderResult = await compiledComponent.render({name: 'Hello, World!'});
