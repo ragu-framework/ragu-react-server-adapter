@@ -1,6 +1,6 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "React Adapter of Ragu Server",
   "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
@@ -28,7 +28,7 @@
     "file-loader": "^6.1.1",
     "get-port": "^5.1.1",
     "mini-css-extract-plugin": "^1.0.0",
-    "ragu-server": "^0.0.49",
+    "ragu-server": "^0.0.51",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "ts-loader": "^8.0.4",
