@@ -1,4 +1,4 @@
-import {StateComponentResolver} from "ragu-server";
+import {RaguServerConfig, StateComponentResolver, StateComponentSingleComponentResolver} from "ragu-server";
 import * as path from 'path';
 
 export class ReactComponentResolver extends StateComponentResolver {
@@ -16,5 +16,15 @@ export class ReactComponentResolver extends StateComponentResolver {
 
   clientSideFileFor(componentName: string): string {
     return this.serverSideFileFor(componentName);
+  }
+}
+
+export class ReactSingleComponentResolver extends StateComponentSingleComponentResolver {
+  clientSideResolverTemplate: string = path.join(__dirname, 'resolvers', 'hydrate-resolver');
+  stateResolverTemplate: string = path.join(__dirname, 'resolvers', 'state-resolver');
+  serverSideResolverTemplate: string = path.join(__dirname, 'resolvers', 'view-resolver');
+
+  constructor(config: RaguServerConfig, componentFile: string, stateFile?: string) {
+    super(config, componentFile, componentFile, stateFile);
   }
 }

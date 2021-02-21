@@ -1,39 +1,67 @@
 import {ClientSideCompiler, RaguServerConfig, ServerSideCompiler} from "ragu-server";
 import {createTestConfig} from "./test-config-factory";
-import {ReactComponentResolver} from "../component-resolver";
+import {ReactComponentResolver, ReactSingleComponentResolver} from "../component-resolver";
 import jsdom, {ConstructorOptions} from "jsdom";
 import fs from "fs";
+import path from "path";
 
 describe('Compiler Integration Test', () => {
-  describe('View Compilation', () => {
-    let compiler: ServerSideCompiler;
-    let config: RaguServerConfig;
+  describe('Server Side Compilation', () => {
+    describe('using file structure', () => {
+      let compiler: ServerSideCompiler;
+      let config: RaguServerConfig;
 
-    beforeAll(async () => {
-      config = await createTestConfig();
-      config.components.resolver = new ReactComponentResolver(config);
+      beforeAll(async () => {
+        config = await createTestConfig();
+        config.components.resolver = new ReactComponentResolver(config);
 
-      compiler = new ServerSideCompiler(config);
-      await compiler.compileAll();
+        compiler = new ServerSideCompiler(config);
+        await compiler.compileAll();
+      });
+
+      it('renders the react component', async () => {
+        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world'));
+        const renderResult = await compiledComponent.render({name: 'Hello, World!'});
+
+        expect(renderResult.html).toContain('Hello, World!');
+      });
+
+      it('renders the react component with a state', async () => {
+        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
+        const renderResult = await compiledComponent.render({name: 'World'});
+
+        expect(renderResult.state).toEqual({msg: 'Hello, World!'});
+        expect(renderResult.html).toContain('Hello, World!');
+      });
     });
 
-    it('renders the react component', async () => {
-      const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world'));
-      const renderResult = await compiledComponent.render({name: 'Hello, World!'});
+    describe('using a single component', () => {
+      let compiler: ServerSideCompiler;
+      let config: RaguServerConfig;
 
-      expect(renderResult.html).toContain('Hello, World!');
-    });
+      beforeAll(async () => {
+        config = await createTestConfig();
+        config.components.resolver = new ReactSingleComponentResolver(
+            config,
+            path.join(config.components.sourceRoot, 'hello-world-state'),
+            path.join(config.components.sourceRoot, 'hello-world-state', 'state'),
+        );
 
-    it('renders the react component with a state', async () => {
-      const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
-      const renderResult = await compiledComponent.render({name: 'World'});
+        compiler = new ServerSideCompiler(config);
+        await compiler.compileAll();
+      });
 
-      expect(renderResult.state).toEqual({msg: 'Hello, World!'});
-      expect(renderResult.html).toContain('Hello, World!');
+      it('renders the react component with a state', async () => {
+        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
+        const renderResult = await compiledComponent.render({name: 'World'});
+
+        expect(renderResult.state).toEqual({msg: 'Hello, World!'});
+        expect(renderResult.html).toContain('Hello, World!');
+      });
     });
   });
 
-  describe('Hydrate Compilation', () => {
+  describe('Client Side Compilation', () => {
     let viewCompiler: ServerSideCompiler;
     let compiler: ClientSideCompiler;
     let config: RaguServerConfig;
