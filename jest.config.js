@@ -6,6 +6,7 @@ module.exports = {
     "/node_modules/",
     "/testing/",
     "/webpack/",
+    "/.ragu-components/",
   ],
   transformIgnorePatterns: ['(.*)\.jsx$'],
   testTimeout: 30000,
