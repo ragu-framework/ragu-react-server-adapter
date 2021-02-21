@@ -5359,15 +5359,15 @@ ragu-client-node@^0.0.3:
   dependencies:
     yarn "^1.22.5"
 
-ragu-dom@^0.0.48:
-  version "0.0.48"
-  resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.48.tgz#8b567be0fb2dd1273426e9da06b8a5e10e71f320"
-  integrity sha512-OTKWR818njDZehhrOoeTBboKM9IGGAjVCukbZfmS3FL3QyvTm37BIP5WKESbaznTyg2gY+RzgdoFlz+cKIRbzw==
+ragu-dom@^0.0.50:
+  version "0.0.50"
+  resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.50.tgz#a93506a2e96057398611b5deed55aebb6b5fcd10"
+  integrity sha512-Gd5xCF9/Wp7dRYkE8jmSXoQVJW2WKsoT9xZtNryF3tf8zm4vV4eh1XD/dvs/v/2z1oenYu3hvy/JWltcSox3pA==
 
-ragu-server@^0.0.49:
-  version "0.0.49"
-  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.49.tgz#ef494f82bc95916647b1b874e090b114c273841d"
-  integrity sha512-a3IrBreGrGRHqDHkY66vzd10okYeD/wKNLPb3z3gZF4ZpZpQiSoypfr5iTF9vAJYPEDsiAaJ4dD+psFvkpcyQA==
+ragu-server@^0.0.51:
+  version "0.0.51"
+  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.51.tgz#f5f4887ee38f70d756b00aed37f122257867de8f"
+  integrity sha512-9Cx3Yv60SMuScaC0PUr40A2nLxQTbv6M7c2YqD85GIgp4rDKED/d5I1WbAy2v2DICaPbEBY/UzXAPWFZYQIZoQ==
   dependencies:
     "@types/webpack-node-externals" "^2.5.0"
     abort-controller "^3.0.0"
@@ -5380,7 +5380,7 @@ ragu-server@^0.0.49:
     is-plain-object "^5.0.0"
     npm-programmatic "^0.0.12"
     ragu-client-node "^0.0.3"
-    ragu-dom "^0.0.48"
+    ragu-dom "^0.0.50"
     webpack "^4.44.1"
     webpack-bundle-analyzer "^3.8.0"
     webpack-merge "^5.1.4"
