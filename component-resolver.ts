@@ -2,19 +2,19 @@ import {StateComponentResolver} from "ragu-server";
 import * as path from 'path';
 
 export class ReactComponentResolver extends StateComponentResolver {
-  hydrateResolver: string = path.join(__dirname, 'resolvers', 'hydrate-resolver');
-  stateResolver: string = path.join(__dirname, 'resolvers', 'state-resolver');
-  viewResolver: string = path.join(__dirname, 'resolvers', 'view-resolver');
+  clientSideResolverTemplate: string = path.join(__dirname, 'resolvers', 'hydrate-resolver');
+  stateResolverTemplate: string = path.join(__dirname, 'resolvers', 'state-resolver');
+  serverSideResolverTemplate: string = path.join(__dirname, 'resolvers', 'view-resolver');
 
   stateFileFor(componentName: string): string {
-    return path.join(this.viewFileFor(componentName), 'state');
+    return path.join(this.serverSideFileFor(componentName), 'state');
   }
 
-  viewFileFor(componentName: string): string {
+  serverSideFileFor(componentName: string): string {
     return path.join(this.config.components.sourceRoot, componentName);
   }
 
-  hydrateFileFor(componentName: string): string {
-    return this.viewFileFor(componentName);
+  clientSideFileFor(componentName: string): string {
+    return this.serverSideFileFor(componentName);
   }
 }

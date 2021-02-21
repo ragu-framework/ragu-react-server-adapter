@@ -10,16 +10,16 @@ export const createReactRaguServerConfig = (requiredConfig: RaguServerBaseConfig
     config.components.resolver = new ReactComponentResolver(config);
   }
 
-  if (!requiredConfig.compiler?.webpack?.view) {
-    config.compiler.webpack.view = merge(
-        config.compiler.webpack.view,
+  if (!requiredConfig.compiler?.webpack?.serverSide) {
+    config.compiler.webpack.serverSide = merge(
+        config.compiler.webpack.serverSide,
         raguReactWebpackViewConfig(config)
     );
   }
 
-  if (!requiredConfig.compiler?.webpack?.hydrate) {
-    config.compiler.webpack.hydrate = merge(
-        config.compiler.webpack.hydrate,
+  if (!requiredConfig.compiler?.webpack?.clientSide) {
+    config.compiler.webpack.clientSide = merge(
+        config.compiler.webpack.clientSide,
         raguReactWebpackHydrateConfig(config)
     );
   }

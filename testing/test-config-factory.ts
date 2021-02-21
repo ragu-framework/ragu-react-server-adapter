@@ -29,7 +29,7 @@ export const createTestConfig = async (): Promise<TestConfig> => {
     },
   });
 
-  config.compiler.assetsPrefix = `file://${config.compiler.output.hydrate}/`;
+  config.compiler.assetsPrefix = `file://${config.compiler.output.clientSide}/`;
 
   return config as TestConfig;
 }

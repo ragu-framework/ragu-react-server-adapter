@@ -1,4 +1,4 @@
-import {HydrateCompiler, RaguServerConfig, ViewCompiler} from "ragu-server";
+import {ClientSideCompiler, RaguServerConfig, ServerSideCompiler} from "ragu-server";
 import {createTestConfig} from "./test-config-factory";
 import {ReactComponentResolver} from "../component-resolver";
 import jsdom, {ConstructorOptions} from "jsdom";
@@ -6,14 +6,14 @@ import fs from "fs";
 
 describe('Compiler Integration Test', () => {
   describe('View Compilation', () => {
-    let compiler: ViewCompiler;
+    let compiler: ServerSideCompiler;
     let config: RaguServerConfig;
 
     beforeAll(async () => {
       config = await createTestConfig();
       config.components.resolver = new ReactComponentResolver(config);
 
-      compiler = new ViewCompiler(config);
+      compiler = new ServerSideCompiler(config);
       await compiler.compileAll();
     });
 
@@ -34,8 +34,8 @@ describe('Compiler Integration Test', () => {
   });
 
   describe('Hydrate Compilation', () => {
-    let viewCompiler: ViewCompiler;
-    let compiler: HydrateCompiler;
+    let viewCompiler: ServerSideCompiler;
+    let compiler: ClientSideCompiler;
     let config: RaguServerConfig;
     let dom: jsdom.JSDOM;
 
@@ -43,8 +43,8 @@ describe('Compiler Integration Test', () => {
     beforeAll(async () => {
       config = await createTestConfig();
       config.components.resolver = new ReactComponentResolver(config);
-      viewCompiler = new ViewCompiler(config);
-      compiler = new HydrateCompiler(config);
+      viewCompiler = new ServerSideCompiler(config);
+      compiler = new ClientSideCompiler(config);
       await compiler.compileAll();
       await viewCompiler.compileAll();
     });
