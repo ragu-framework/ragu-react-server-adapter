@@ -5364,10 +5364,10 @@ ragu-dom@^0.0.51:
   resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.51.tgz#0c936636c255ae68df7b4ce4b678b30053ab7b0f"
   integrity sha512-MGEZL70Va/QW1xEcX63EwItbJipAvUr6PfLmj8FbMCDtUa6s548KOoROLezBG0xFme8vNRm/sniBLv0OwElsew==
 
-ragu-server@^0.0.53:
-  version "0.0.53"
-  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.53.tgz#1a9a530dfb6069227c8055f356145368fc6a0eba"
-  integrity sha512-GhFp/H/bkEthPjbN+vU6c/xk8hoyeDrNpIP1NesxXXyGdvJsyn8iCZuf3143M4yyyKx2irUrCPA4oIs5XY7QBw==
+ragu-server@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.54.tgz#ca33b3f80c40e8e5f871dd138213a5061ca08ada"
+  integrity sha512-mqWg8j6FNKmFZNi3Du3UQ5rvEXtT9GBiHCm/5yZ/RjszTmZ9HSsc79oC080cHZuVXHx+OYNK/14F+voCTlPpSQ==
   dependencies:
     "@types/webpack-node-externals" "^2.5.0"
     abort-controller "^3.0.0"
