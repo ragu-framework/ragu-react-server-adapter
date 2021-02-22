@@ -1,6 +1,6 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "React Adapter of Ragu Server",
   "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
@@ -14,8 +14,8 @@
   "devDependencies": {
     "jest": "^26.5.2",
     "jsdom": "^16.4.0",
-    "ts-jest": "^26.4.1",
-    "ragu-server": "^0.0.53"
+    "ragu-server": "^0.0.53",
+    "ts-jest": "^26.4.1"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
