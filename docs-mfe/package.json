@@ -8,8 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "babel-plugin-react-css-modules": "^5.2.6",
     "deepmerge": "^4.2.2",
-    "ragu-react-server-adapter": "^0.0.5",
-    "ragu-server": "^0.0.34",
+    "ragu-react-server-adapter": "^0.0.14",
+    "ragu-server": "^0.0.54",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3",
@@ -22,7 +22,9 @@
     "eject": "react-scripts eject",
     "ragu:build": "ragu-server build ragu-config.js",
     "ragu:start": "ragu-server run ragu-config.js",
-    "ragu:dev": "ragu-server dev ragu-config.js"
+    "ragu:dev": "ragu-server dev ragu-config.js",
+    "dev:mfe": "ragu-cli dev ragu-components/installation/index.js --dependencies dependencies.json",
+    "build:mfe": "ragu-cli build:staticpublish.yml ragu-components/installation/index.js --dependencies dependencies.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ragu-cli": "^0.0.6"
   }
 }
