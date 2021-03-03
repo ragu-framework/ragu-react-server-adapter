@@ -14,7 +14,7 @@
   "devDependencies": {
     "jest": "^26.5.2",
     "jsdom": "^16.4.0",
-    "ragu-server": "^0.0.54",
+    "ragu-server": "^0.0.56",
     "ts-jest": "^26.4.1"
   },
   "dependencies": {

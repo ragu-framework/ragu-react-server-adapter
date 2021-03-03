@@ -50,6 +50,9 @@ export const raguReactWebpackBaseConfig = (config: RaguServerConfig): webpack.Co
     },
     plugins: [
       new MiniCSSExtractPlugin(),
+      new webpack.ProvidePlugin({
+        React: 'react',
+      })
     ]
   }
 }
