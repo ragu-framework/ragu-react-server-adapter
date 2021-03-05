@@ -4,6 +4,7 @@ import {ReactComponentResolver, ReactSingleComponentResolver} from "../component
 import jsdom, {ConstructorOptions} from "jsdom";
 import fs from "fs";
 import path from "path";
+import waitForExpect from "wait-for-expect";
 
 describe('Compiler Integration Test', () => {
   describe('Server Side Compilation', () => {
@@ -154,8 +155,10 @@ describe('Compiler Integration Test', () => {
       window.stubReactDestroyed = jest.fn();
       resolvedComponent.disconnect(div);
 
-      // @ts-ignore
-      expect(window.stubReactDestroyed).toBeCalled();
+      await waitForExpect(() => {
+        // @ts-ignore
+        expect(window.stubReactDestroyed).toBeCalled();
+      });
     });
   });
 });
