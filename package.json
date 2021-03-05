@@ -1,6 +1,6 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "React Adapter of Ragu Server",
   "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
@@ -12,6 +12,7 @@
     "heroku-prebuild": "yarn --cwd docs-mfe && yarn --cwd docs-mfe build"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "jest": "^26.6.3",
     "jsdom": "^16.4.0",
     "ragu-server": "^0.0.64",
