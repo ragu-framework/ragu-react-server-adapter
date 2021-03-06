@@ -9,9 +9,6 @@ export const raguReactWebpackBaseConfig = (config: RaguServerConfig): webpack.Co
     resolve: {
       modules: ['node_modules', path.resolve(__dirname, '..', 'node_modules')],
       extensions: [ '.js', '.jsx', '.ts', 'tsx' ],
-      alias: {
-        react: path.resolve("./node_modules/react")
-      }
     },
     resolveLoader: {
       modules: ['node_modules', path.resolve(__dirname, '..', 'node_modules')],
