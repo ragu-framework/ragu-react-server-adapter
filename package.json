@@ -8,13 +8,11 @@
   "scripts": {
     "test": "jest --runInBand --coverage --silent --verbose",
     "clean": "tsc --build --clean",
-    "build": "tsc && cp package.json dist/ && cp ./README.md dist/ && cp -r resolvers dist/",
-    "publish": "clean-publish"
+    "build": "tsc && cp package.json dist/ && cp ./README.md dist/ && cp -r resolvers dist/"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@types/jsdom": "^16.2.6",
-    "clean-publish": "^1.1.9",
     "get-port": "^5.1.1",
     "jest": "^26.6.3",
     "jsdom": "^16.4.0",
