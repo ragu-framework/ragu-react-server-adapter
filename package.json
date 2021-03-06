@@ -1,6 +1,6 @@
 {
   "name": "ragu-react-server-adapter",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "React Adapter of Ragu Server",
   "repository": "https://github.com/ragu-framework/ragu-react-server-adapter",
   "author": "Maniero <carlosmaniero@gmail.com>",
