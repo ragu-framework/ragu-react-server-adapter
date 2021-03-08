@@ -48,13 +48,23 @@ const DescriptionNumberWrapper = styled.div`
   align-items: center;
 `
 
+const TaskWrapper = styled.div`
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  
+  @media (max-width: 960px) {
+    margin-left: 52px;
+  }
+`;
+
 export const CommandListItem = ({number, description, task}) => <>
   <DescriptionNumberWrapper>
     <CommandListItemNumber>{number}</CommandListItemNumber>
     <CommandListItemDescription>{description}</CommandListItemDescription>
   </DescriptionNumberWrapper>
 
-  {task}
+  <TaskWrapper>{task}</TaskWrapper>
 </>
 
 export const CommandList = ({items}) => {
