@@ -4,6 +4,9 @@ const WrapperStyle = styled.section`
   background: #2B3332;
   padding: 110px 0;
   font-family: Poppins, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
 
   * {
     margin: 0;

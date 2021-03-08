@@ -2,17 +2,26 @@ import styled from "styled-components";
 
 const CommandListItemWrapper = styled.div`
   display: grid;
-  color: white;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr 3fr;
   grid-gap: 60px;
   margin: 60px 0;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
   
-  a {
+  a, mark {
     color: #41B883;
+    background: none;
+  }
+  
+  p:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    margin-bottom: 10px;
+  }
+  
+  mark {
+    white-space: nowrap;
   }
   
   @media (max-width: 960px) {
