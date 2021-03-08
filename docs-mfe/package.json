@@ -25,7 +25,7 @@
     "ragu:start": "ragu-server run ragu-config.js",
     "ragu:dev": "ragu-server dev ragu-config.js",
     "dev:mfe": "ragu-cli dev --directory ragu-components --dependencies dependencies.json",
-    "build:mfe": "ragu-cli build:static ragu-components/installation/index.js -h https://ragu-framework.github.io/ragu-react-server-adapter --dependencies dependencies.json"
+    "build:mfe": "ragu-cli static --directory ragu-components --baseurl https://ragu-framework.github.io/ragu-react-server-adapter --dependencies dependencies.json"
   },
   "eslintConfig": {
     "extends": "react-app"
