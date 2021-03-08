@@ -118,7 +118,7 @@ export default (props) => {
               A json with the same name of your <mark>--file</mark> will be created at <mark>.ragu-components/</mark>.
             </p>
             <p>You must use this json to fetch your micro-frontend using the ragu-client</p>
-            <p>⚠️ Don't forget the <mark>.json</mark> extension. That's how Ragu know it is a static micro-frontend.</p>
+            <p>⚠️ Don't forget the <mark>.json</mark> extension. That's how Ragu knows it is a static micro-frontend.</p>
           </div>,
           task: <Code>{usingComponentStaticTask}</Code>
         },
