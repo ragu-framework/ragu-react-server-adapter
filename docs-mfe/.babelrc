@@ -1,5 +1,8 @@
 {
   "plugins": [
-    ["react-css-modules"]
+    ["react-css-modules"],
+    ["babel-plugin-styled-components", {
+      "namespace": "react-docs-mfe"
+    }]
   ]
 }
