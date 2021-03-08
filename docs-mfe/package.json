@@ -9,7 +9,7 @@
     "babel-plugin-react-css-modules": "^5.2.6",
     "deepmerge": "^4.2.2",
     "ragu-react-server-adapter": "^0.0.14",
-    "ragu-server": "^0.0.54",
+    "ragu-server": "^0.0.72",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3",
