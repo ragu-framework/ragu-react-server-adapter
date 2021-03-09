@@ -85,7 +85,7 @@ export default (props) => {
         There are two ways of publishing your micro-frontend:
       </InfoText>
       <InfoText>
-        You can deploy as a simple <strong>static project</strong> to your favorite CDN or ir can use <strong>ragu
+        You can deploy it as a simple <strong>static project</strong> to your favorite CDN or use <strong>ragu
         server</strong> to publish your micro-frontends.
       </InfoText>
 
@@ -117,7 +117,7 @@ export default (props) => {
             <p>
               A json with the same name of your <mark>--file</mark> will be created at <mark>.ragu-components/</mark>.
             </p>
-            <p>You must use this json to fetch your micro-frontend using the ragu-client</p>
+            <p>You must use this json to fetch your micro-frontend using the ragu-client.</p>
             <p>⚠️ Don't forget the <mark>.json</mark> extension. That's how Ragu knows it is a static micro-frontend.</p>
           </div>,
           task: <Code>{usingComponentStaticTask}</Code>
