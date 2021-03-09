@@ -11,6 +11,10 @@ const CommandListItemWrapper = styled.div`
     color: #41B883;
     background: none;
   }
+
+  mark {
+    white-space: nowrap;
+  }
   
   p:not(:last-child) {
     margin-bottom: 20px;
@@ -18,10 +22,6 @@ const CommandListItemWrapper = styled.div`
   
   h4 {
     margin-bottom: 10px;
-  }
-  
-  mark {
-    white-space: nowrap;
   }
   
   @media (max-width: 960px) {
@@ -54,7 +54,7 @@ const TaskWrapper = styled.div`
   width: 100%;
   
   @media (max-width: 960px) {
-    margin-left: 52px;
+    padding-left: 52px;
   }
 `;
 

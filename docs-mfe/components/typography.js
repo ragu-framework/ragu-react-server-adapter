@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Title = styled.h2`
-  font-style: normal;
   font-weight: bold;
   font-size: 48px;
   
@@ -9,7 +8,6 @@ export const Title = styled.h2`
 `
 
 export const Subtitle = styled.h3`
-  font-style: normal;
   font-weight: bold;
   font-size: 36px;
   margin-top: 40px;
