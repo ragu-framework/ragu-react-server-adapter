@@ -4478,8 +4478,8 @@ ragu-dom@^0.0.78:
 
 ragu-server@^0.0.82:
   version "0.0.82"
-  resolved "http://0.0.0.0:4873/ragu-server/-/ragu-server-0.0.82.tgz#aeb6dc7a64002826f70146d99ca082d31d0488d8"
-  integrity sha512-8q5j/KFj3hXzPvcOVY5Oazfdhk+gLpiyM8Tmi6HqhyIC86DlWyQDM6VzmTh18cbUMrrpKahK3fWzenhfTaI/iA==
+  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.82.tgz#62bb18feea7a41530e84751dd69004574ba85131"
+  integrity sha512-f5TtjlJYpqdkW4LEq7LrFyBsqHNtIP3HkHtK5PCkbowt/c//YPeBVDwTYgKghMeGWHAyoYIzYw03ezLvFgEm5g==
   dependencies:
     abort-controller "^3.0.0"
     chalk "^4.1.0"
