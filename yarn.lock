@@ -2907,6 +2907,11 @@ html-escaper@^2.0.0:
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
   integrity sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==
 
+html-parsed-element@^0.4.0:
+  version "0.4.0"
+  resolved "http://0.0.0.0:4873/html-parsed-element/-/html-parsed-element-0.4.0.tgz#4e88a278b3ec8a6e5070b3ebd6c4de087711c92a"
+  integrity sha512-8J1VJKT/wOUzmVeqzvf8/Qm35ofWLfWQRGCE8/2vsgMG1Y6p+1MMmiXOE8QAx/FXphYcmg6NXwZct82iee+UsA==
+
 http-errors@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.7.2.tgz#4f5029cf13239f31036e5b2e55292bcfbcc85c8f"
@@ -4464,15 +4469,17 @@ ragu-client-node@^0.0.4:
   dependencies:
     yarn "^1.22.10"
 
-ragu-dom@0.0.70:
-  version "0.0.70"
-  resolved "https://registry.yarnpkg.com/ragu-dom/-/ragu-dom-0.0.70.tgz#f7dad1f39255ba5bff0b30648d4acba4473a2f55"
-  integrity sha512-CWylNJVvKc2D6Md5qrvimxe0nS93C4k7YxAG1QW+rISO6CS+FaD3Q/SogV8IRFvfO63ATidA/6IRXL2kRmVoKg==
+ragu-dom@^0.0.78:
+  version "0.0.78"
+  resolved "http://0.0.0.0:4873/ragu-dom/-/ragu-dom-0.0.78.tgz#d42cc44e35d672cef603d41beee5a6997c04d510"
+  integrity sha512-hgt1OtOzTfg+rvulNEoRskJElHvNBjC/aAPARpdSMb3qZ+dx17S6+/5FGRi0mpT2AuRXBmH1EmB6peHkQnBnYA==
+  dependencies:
+    html-parsed-element "^0.4.0"
 
-ragu-server@^0.0.72:
-  version "0.0.72"
-  resolved "https://registry.yarnpkg.com/ragu-server/-/ragu-server-0.0.72.tgz#df78212332e45b81c91773b5706b7aa60dc96d4e"
-  integrity sha512-QdyPFW6OYRQz/Edb/TB+mytKaSm5cofT7diRqzmkO1qq3EAgpK4hk43AobWsfEvXedsrMC47hluNoMH2w+8Umw==
+ragu-server@^0.0.82:
+  version "0.0.82"
+  resolved "http://0.0.0.0:4873/ragu-server/-/ragu-server-0.0.82.tgz#aeb6dc7a64002826f70146d99ca082d31d0488d8"
+  integrity sha512-8q5j/KFj3hXzPvcOVY5Oazfdhk+gLpiyM8Tmi6HqhyIC86DlWyQDM6VzmTh18cbUMrrpKahK3fWzenhfTaI/iA==
   dependencies:
     abort-controller "^3.0.0"
     chalk "^4.1.0"
@@ -4484,7 +4491,7 @@ ragu-server@^0.0.72:
     is-plain-object "^5.0.0"
     npm-programmatic "^0.0.12"
     ragu-client-node "^0.0.4"
-    ragu-dom "0.0.70"
+    ragu-dom "^0.0.78"
     webpack-bundle-analyzer "^4.4.0"
     webpack-livereload-plugin "^3.0.0"
     webpack-merge "^5.1.4"

@@ -1,3 +1,3 @@
-export default (props) => Promise.resolve({
-  msg: `Hello, ${props.name}!`
+export default ({params}) => Promise.resolve({
+  msg: `Hello, ${params.name}!`
 });

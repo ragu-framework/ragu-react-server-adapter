@@ -5,6 +5,7 @@ import jsdom, {ConstructorOptions} from "jsdom";
 import fs from "fs";
 import path from "path";
 import waitForExpect from "wait-for-expect";
+import {ComponentRenderService} from "ragu-server/src/services/component-render-service";
 
 describe('Compiler Integration Test', () => {
   describe('Server Side Compilation', () => {
@@ -21,18 +22,43 @@ describe('Compiler Integration Test', () => {
       });
 
       it('renders the react component', async () => {
-        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world'));
-        const renderResult = await compiledComponent.render({name: 'Hello, World!'});
+        const componentPath = compiler.compiledComponentPath('hello-world');
+
+        const renderResult = await new ComponentRenderService(config)
+            .renderComponent('hello-world', [], componentPath, "http://", {name: 'Hello, World!'}, {} as any);
 
         expect(renderResult.html).toContain('Hello, World!');
       });
 
       it('renders the react component with a state', async () => {
-        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
-        const renderResult = await compiledComponent.render({name: 'World'});
+        let componentPath = compiler.compiledComponentPath('hello-world-state');
+
+        const renderResult = await new ComponentRenderService(config)
+            .renderComponent('hello-world-state', [], componentPath, "http://", {name: 'World'}, {} as any);
 
         expect(renderResult.state).toEqual({msg: 'Hello, World!'});
         expect(renderResult.html).toContain('Hello, World!');
+      });
+
+      describe('using the deprecated api', () => {
+        it('renders the react', async () => {
+          let componentPath = compiler.compiledComponentPath('hello-world-deprecated');
+
+          const renderResult = await new ComponentRenderService(config)
+              .renderComponent('hello-world-deprecated', [], componentPath, "http://", {name: 'Hello, World!'}, {} as any);
+
+          expect(renderResult.html).toContain('Hello, World!');
+        });
+
+        it('renders the react component with a state', async () => {
+          let componentPath = compiler.compiledComponentPath('hello-world-state-deprecated');
+
+          const renderResult = await new ComponentRenderService(config)
+              .renderComponent('hello-world-state-deprecated', [], componentPath, "http://", {name: 'World'}, {} as any);
+
+          expect(renderResult.state).toEqual({msg: 'Hello, World!'});
+          expect(renderResult.html).toContain('Hello, World!');
+        });
       });
     });
 
@@ -53,8 +79,10 @@ describe('Compiler Integration Test', () => {
       });
 
       it('renders the react component with a state', async () => {
-        const {default: compiledComponent} = require(compiler.compiledComponentPath('hello-world-state'));
-        const renderResult = await compiledComponent.render({name: 'World'});
+        let componentPath = compiler.compiledComponentPath('hello-world-state');
+
+        const renderResult = await new ComponentRenderService(config)
+            .renderComponent('hello-world-state', [], componentPath, "http://", {name: 'World'}, {} as any);
 
         expect(renderResult.state).toEqual({msg: 'Hello, World!'});
         expect(renderResult.html).toContain('Hello, World!');
@@ -98,8 +126,10 @@ describe('Compiler Integration Test', () => {
     }
 
     it('exports compiled component into window', async () => {
-      const {default: compiledComponent} = require(viewCompiler.compiledComponentPath('hello-world'));
-      const renderResult = await compiledComponent.render({name: 'Hello, World!'});
+      const componentPath = viewCompiler.compiledComponentPath('hello-world');
+
+      const renderResult = await new ComponentRenderService(config)
+          .renderComponent('hello-world', [], componentPath, "http://", {name: 'Hello, World!'}, {} as any);
 
       await evalCompiledClient('hello-world');
 
@@ -114,8 +144,11 @@ describe('Compiler Integration Test', () => {
     });
 
     it('rehydrates state', async () => {
-      const {default: compiledComponent} = require(viewCompiler.compiledComponentPath('hello-world-state'));
-      const renderResult = await compiledComponent.render({name: 'World'});
+      const componentPath = viewCompiler.compiledComponentPath('hello-world-state');
+
+      const renderResult = await new ComponentRenderService(config)
+          .renderComponent('hello-world-state', [], componentPath, "http://", {name: 'World'}, {} as any);
+
       await evalCompiledClient('hello-world-state');
 
       const resolvedComponent = (window as any)['test_components_hello-world-state'].default;
@@ -140,8 +173,11 @@ describe('Compiler Integration Test', () => {
     });
 
     it('destroys component', async () => {
-      const {default: compiledComponent} = require(viewCompiler.compiledComponentPath('hello-world'));
-      const renderResult = await compiledComponent.render({name: 'Hello, World!'});
+      const componentPath = viewCompiler.compiledComponentPath('hello-world');
+
+      const renderResult = await new ComponentRenderService(config)
+          .renderComponent('hello-world', [], componentPath, "http://", {name: 'Hello, World!'}, {} as any);
+
       await evalCompiledClient('hello-world');
 
       const resolvedComponent = (window as any)['test_components_hello-world'].default;
@@ -158,6 +194,55 @@ describe('Compiler Integration Test', () => {
       await waitForExpect(() => {
         // @ts-ignore
         expect(window.stubReactDestroyed).toBeCalled();
+      });
+    });
+
+    describe('legacy api', () => {
+      it('exports compiled component into window', async () => {
+        const componentPath = viewCompiler.compiledComponentPath('hello-world-deprecated');
+
+        const renderResult = await new ComponentRenderService(config)
+            .renderComponent('hello-world-deprecated', [], componentPath, "http://", {name: 'Hello, World!'}, {} as any);
+
+        await evalCompiledClient('hello-world-deprecated');
+
+        const resolvedComponent = (window as any)['test_components_hello-world-deprecated'].default;
+        const div = dom.window.document.createElement('div');
+
+        div.innerHTML = renderResult.html;
+
+        await resolvedComponent.hydrate(div, {name: 'Hello, World!'});
+
+        expect(div.textContent).toContain('Hello, World');
+      });
+
+      it('rehydrates state', async () => {
+        const componentPath = viewCompiler.compiledComponentPath('hello-world-state-deprecated');
+
+        const renderResult = await new ComponentRenderService(config)
+            .renderComponent('hello-world-state-deprecated', [], componentPath, "http://", {name: 'World'}, {} as any);
+
+        await evalCompiledClient('hello-world-state-deprecated');
+
+        const resolvedComponent = (window as any)['test_components_hello-world-state-deprecated'].default;
+        const div = dom.window.document.createElement('div');
+
+        div.innerHTML = renderResult.html;
+
+        await resolvedComponent.hydrate(div, {name: 'World'}, {msg: 'Hello, World!'});
+
+        expect(div.textContent).toContain('Hello, World');
+      });
+
+      it('renders a component', async () => {
+        await evalCompiledClient('hello-world-state-deprecated');
+
+        const resolvedComponent = (window as any)['test_components_hello-world-state-deprecated'].default;
+        const div = dom.window.document.createElement('div');
+
+        await resolvedComponent.render(div, {name: 'World'}, {msg: 'Hello, World!'});
+
+        expect(div.textContent).toContain('Hello, World');
       });
     });
   });
