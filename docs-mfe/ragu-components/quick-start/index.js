@@ -4,8 +4,8 @@ import {Title, TitleWrapper, InfoText, Subtitle} from "../../components/typograp
 import {CommandList} from "../../components/command-list";
 import {Code} from "../../components/code";
 
-const exportComponentTask = `export default (props) => 
-  <div>Hello, {props.name}!</div>`
+const exportComponentTask = `export default ({params}) => 
+  <div>Hello, {params.name}!</div>`
 
 const staticDeployTask = `npx ragu-cli static --file my-mfe.jsx
   --host https://cdn.com/path/`;
@@ -31,8 +31,8 @@ const usingComponentTask = `import {RaguComponent} from "ragu-client-react";
 <RaguComponent
  src="http://localhost:3100/?name=World" />`
 
-export default (props) => {
-  return <Wrapper env={props.env}>
+export default ({params}) => {
+  return <Wrapper env={params.env}>
     <MainContent>
       <TitleWrapper>
         <Title>Exposing Micro-frontends</Title>
