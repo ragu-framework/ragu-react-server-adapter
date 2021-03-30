@@ -1,9 +1,9 @@
-import {createConfig, RaguServerBaseConfigProps} from "ragu-server";
+import {createConfig, RaguServerBaseConfigProps, RaguServerConfig} from "ragu-server";
 import {ReactComponentResolver} from "./component-resolver";
 import {merge} from "webpack-merge";
 import {raguReactWebpackHydrateConfig, raguReactWebpackViewConfig} from "./webpack";
 
-export const createReactRaguServerConfig = (requiredConfig: RaguServerBaseConfigProps = {}) => {
+export const createReactRaguServerConfig = (requiredConfig: RaguServerBaseConfigProps = {}): RaguServerConfig => {
   const config = createConfig(requiredConfig);
 
   if (!requiredConfig.components?.resolver) {
